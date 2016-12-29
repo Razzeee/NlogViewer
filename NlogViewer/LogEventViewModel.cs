@@ -24,6 +24,10 @@ namespace NlogViewer
             SetupColors(logEventInfo);
         }
 
+        public override string ToString()
+        {
+            return Time + " " + LoggerName + " " + Level + " " + FormattedMessage + " " + Exception;
+        }
 
         public string Time { get; private set; }
         public string LoggerName { get; private set; }

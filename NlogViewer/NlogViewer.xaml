@@ -11,7 +11,10 @@
     </UserControl.Resources>
     <Grid>
         <ListView ItemsSource="{Binding LogEntries}" Name="logView">
-            <ListView.ItemContainerStyle>
+      <ListView.CommandBindings>
+        <CommandBinding Command="Copy" Executed="CopyExecuted"/>
+      </ListView.CommandBindings>
+      <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <Setter Property="ToolTip" Value="{Binding ToolTip}" />
                     <Setter Property="Background" Value="{Binding Background}" />
