@@ -52,14 +52,19 @@ namespace NlogViewer
             }
         }
 
+        public void AddLog(LogEventViewModel entry)
+        {
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                LogEntries.Add(entry);
+            }));
+        }
+
         protected void LogReceived(NLog.Common.AsyncLogEventInfo log)
         {
             LogEventViewModel vm = new LogEventViewModel(log.LogEvent);
 
-            Dispatcher.BeginInvoke(new Action(() =>
-            {
-                LogEntries.Add(vm);
-            }));
+            AddLog(vm);
         }
 
         private void CopyExecuted(object sender, ExecutedRoutedEventArgs e)
