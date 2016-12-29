@@ -68,9 +68,6 @@ namespace NlogViewer
 
             Dispatcher.BeginInvoke(new Action(() =>
             {
-                if (LogEntries.Count >= 50)
-                    LogEntries.RemoveAt(0);
-                
                 LogEntries.Add(vm);
             }));
         }
